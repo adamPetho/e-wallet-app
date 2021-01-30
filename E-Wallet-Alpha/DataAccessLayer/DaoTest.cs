@@ -9,23 +9,21 @@ namespace E_Wallet_Alpha.DataAccessLayer
     public class DaoTest
     {
 
-        private string GetName()
-        {
-            return "Adam";
-        }
-
-        private int GetBalance()
-        {
-            return 350;
-        }
-
         public User GetDummyUser()
         {
             return new User
             {
-                ID = 1,
-                Username = GetName(),
-                Balance = GetBalance()
+                Username = "Anonymus",
+                Balance = 0
+            };
+        }
+
+        public User GetLoggedInDummyUser()
+        {
+            return new User
+            {
+                Username = "LoggedIn",
+                Balance = 350
             };
         }
     }

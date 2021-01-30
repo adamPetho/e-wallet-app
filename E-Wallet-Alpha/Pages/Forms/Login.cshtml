@@ -2,9 +2,9 @@
 @model E_Wallet_Alpha.Pages.Forms.LoginModel
 @{
 }
-<h1>Please Log in :)</h1>
+<h1>Please Log in</h1>
 <form method="post">
-    <input type="text" placeholder="Username" />
-    <input type="text" placeholder="Password" />
+    <input type="text" placeholder="Username" asp-for="@Model.Username" value="@Model.Username"/>
+    <input type="password" placeholder="Password" asp-for="@Model.Password" value="@Model.Password"/>
     <button type="submit">Log in </button>
 </form>

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using E_Wallet_Alpha.DataAccessLayer;
+using E_Wallet_Alpha.DataAccessLayer.Contexts;
+using E_Wallet_Alpha.Sevices;
 using E_Wallet_Alpha.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,7 +30,14 @@ namespace E_Wallet_Alpha
         {
 
             //services.AddScoped<ViewModel, ViewModel>();
+
+            services.AddDbContextPool<UserContext>(options =>
+            {
+                options.UseNpgsql(Configuration.GetConnectionString("WalletDBConnection"));
+            });
+
             services.AddScoped<DaoTest, DaoTest>();
+            services.AddScoped<PasswordHasher, PasswordHasher>();
 
             services.AddRazorPages();
         }

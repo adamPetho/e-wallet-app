@@ -23,6 +23,32 @@ namespace E_Wallet_Alpha.ViewModels
             return _dao.GetDummyUser();
         }
 
+       public bool Login(string username, string password)
+        {
+            bool isSuccessful = false;
+
+            //Login Logic comes here
+
+            if(username.Equals("test") && password.Equals("test"))
+            {
+                isSuccessful = true;
+                LoggedInUser = _dao.GetLoggedInDummyUser();
+            }
+
+
+            return isSuccessful;
+        }
+
+        public void RegisterUser(string username, string email, string password)
+        {
+            User newOne = new User
+            {
+                Username = username,
+                Email = email,
+                Password = password,
+                Balance = 0
+            };
+        }
 
 
         public static ViewModel GetInstance()

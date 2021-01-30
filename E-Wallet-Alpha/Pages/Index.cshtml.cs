@@ -27,7 +27,7 @@ namespace E_Wallet_Alpha.Pages
         {
             if(_vm.LoggedInUser == null)
             {
-                _vm.LoggedInUser = _vm.GetDummyUser();
+                _vm.LoggedInUser = _vm.GetTestUser();
             }
             UserToShow = _vm.LoggedInUser;
         }
