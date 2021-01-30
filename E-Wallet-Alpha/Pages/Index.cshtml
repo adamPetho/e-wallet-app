@@ -4,6 +4,16 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome @Model.UserToShow.Username</h1>
-</div>
+@if (Model.isLoggedIn)
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome @Model.Username</h1>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome new User, go and log in</h1>
+    </div>
+}
+

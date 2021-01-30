@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using E_Wallet_Alpha.ViewModels;
+using E_Wallet_Alpha.Sevices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,11 +6,11 @@ namespace E_Wallet_Alpha.Pages.Forms
 {
     public class RegisterModel : PageModel
     {
-        private readonly ViewModel _vm;
+        private readonly LoginService _lgService;
 
-        public RegisterModel(ViewModel vm)
+        public RegisterModel(LoginService lgService)
         {
-            _vm = vm;
+            _lgService = lgService;
         }
 
         [BindProperty]
@@ -41,6 +37,8 @@ namespace E_Wallet_Alpha.Pages.Forms
             {
                 return Page();
             }
+
+            _lgService.RegisterUser(Username, Email, Password);
 
             return RedirectToPage("/Index");
         }

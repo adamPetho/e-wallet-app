@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using E_Wallet_Alpha.Models;
-using E_Wallet_Alpha.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Logging;
 
 namespace E_Wallet_Alpha.Pages
@@ -13,23 +14,30 @@ namespace E_Wallet_Alpha.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly ViewModel _vm;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
-            _vm = ViewModel.GetInstance();
         }
 
-        public User UserToShow { get; set; }
+        public string Username { get; set; }
+
+        [HtmlAttributeName("loggedin")]
+        public bool isLoggedIn { get; set; } = false;
 
         public void OnGet()
         {
-            if(_vm.LoggedInUser == null)
+            string name = HttpContext.Session.GetString("user_name");
+
+            if(name == null)
             {
-                _vm.LoggedInUser = _vm.GetTestUser();
+                Username = "Anonymus";
+            } 
+            else
+            {
+                Username = name;
+                isLoggedIn = true;
             }
-            UserToShow = _vm.LoggedInUser;
         }
     }
 }

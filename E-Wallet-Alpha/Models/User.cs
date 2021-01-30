@@ -28,6 +28,7 @@ namespace E_Wallet_Alpha.Models
         [MinLength(3)]
         public string Password { get; set; }
 
+        [Required]
         public int Balance { get; set; }
         public List<Transiction> Transictions { get; set; }
     }

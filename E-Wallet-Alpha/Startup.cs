@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using E_Wallet_Alpha.DataAccessLayer;
 using E_Wallet_Alpha.DataAccessLayer.Contexts;
 using E_Wallet_Alpha.Sevices;
-using E_Wallet_Alpha.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,15 +28,17 @@ namespace E_Wallet_Alpha
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //services.AddScoped<ViewModel, ViewModel>();
-
             services.AddDbContextPool<UserContext>(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("WalletDBConnection"));
             });
 
-            services.AddScoped<DaoTest, DaoTest>();
-            services.AddScoped<PasswordHasher, PasswordHasher>();
+            //services.AddScoped<DaoTest>();
+            services.AddScoped<LoginService>();
+            services.AddScoped<IDataAccess, DataAccessClass>();
+            services.AddScoped<PasswordHasher>();
+
+            services.AddSession();
 
             services.AddRazorPages();
         }
@@ -60,6 +61,8 @@ namespace E_Wallet_Alpha
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 
