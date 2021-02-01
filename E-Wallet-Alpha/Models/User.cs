@@ -24,7 +24,6 @@ namespace E_Wallet_Alpha.Models
         public string Email { get; set; }
 
         [Required]
-        [MaxLength(20)]
         [MinLength(3)]
         public string Password { get; set; }
 

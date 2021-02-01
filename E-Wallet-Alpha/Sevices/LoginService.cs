@@ -1,19 +1,18 @@
 ﻿using E_Wallet_Alpha.DataAccessLayer;
 using E_Wallet_Alpha.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace E_Wallet_Alpha.Sevices
 {
     public class LoginService
     {
         private readonly IDataAccess _dao;
+        private readonly PasswordHasher _pwHasher;
 
-        public LoginService(IDataAccess dao)
+        public LoginService(IDataAccess dao, PasswordHasher pwHasher)
         {
             _dao = dao;
+            _pwHasher = pwHasher;
         }
 
         public User Login(string email, string password)
@@ -22,19 +21,17 @@ namespace E_Wallet_Alpha.Sevices
 
             User wannaBeLoggedIn = _dao.GetUserByEmail(email);
 
-            if(wannaBeLoggedIn.Password.Equals(password))
+            try
             {
-                return wannaBeLoggedIn;
-            }
-
-            /*if(email.Equals("admin") && password.Equals("admin"))
-            {
-                return new User
+                if(_pwHasher.VerifyPasswords(password,wannaBeLoggedIn.Password))
                 {
-                    Username = "HellooBelloo"
-                };
-            }*/
-
+                    return wannaBeLoggedIn;
+                }
+            } 
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             return new User();
         }
@@ -45,11 +42,21 @@ namespace E_Wallet_Alpha.Sevices
             {
                 Username = username,
                 Email = email,
-                Password = password,
+                Password = _pwHasher.CreateHashedPassword(password),
                 Balance = 0
             };
 
+            if(_dao.IsEmailExistInDB(email))
+            {
+                throw new Exception("Email already exist in Database");
+            }
+
             _dao.AddUserToDB(newOne);
+        }
+
+        public User GetUserByID(string id)
+        {
+            return _dao.GetUserByID(id);
         }
     }
 }

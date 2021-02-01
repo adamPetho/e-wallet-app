@@ -44,7 +44,6 @@ namespace E_Wallet_Alpha.Pages.Forms
             }
 
             HttpContext.Session.SetString("user_id", loggedin.ID.ToString());
-            HttpContext.Session.SetString("user_name", loggedin.Username);
 
             return RedirectToPage("/Index");
         }

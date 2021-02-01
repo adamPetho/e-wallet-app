@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using E_Wallet_Alpha.Models;
+﻿using E_Wallet_Alpha.Models;
+using E_Wallet_Alpha.Sevices;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Logging;
@@ -14,28 +10,34 @@ namespace E_Wallet_Alpha.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly LoginService _lgService;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILogger<IndexModel> logger, LoginService lg)
         {
             _logger = logger;
+            _lgService = lg;
         }
 
-        public string Username { get; set; }
+        public User LoggedInUser { get; set; }
 
         [HtmlAttributeName("loggedin")]
-        public bool isLoggedIn { get; set; } = false;
+        public bool isLoggedIn { get; set; } = true;
 
         public void OnGet()
         {
-            string name = HttpContext.Session.GetString("user_name");
+            string guidInString = HttpContext.Session.GetString("user_id");
 
-            if(name == null)
+
+            if(HttpContext.Session.GetString("user_id") == null)
             {
-                Username = "Anonymus";
+                isLoggedIn = false;
             } 
             else
             {
-                Username = name;
+                //data holder
+                LoggedInUser = _lgService.GetUserByID(guidInString); 
+                
+                //Can view it
                 isLoggedIn = true;
             }
         }

@@ -1,5 +1,6 @@
 ﻿using E_Wallet_Alpha.DataAccessLayer.Contexts;
 using E_Wallet_Alpha.Models;
+using System;
 using System.Linq;
 
 namespace E_Wallet_Alpha.DataAccessLayer
@@ -15,9 +16,26 @@ namespace E_Wallet_Alpha.DataAccessLayer
 
         public void AddUserToDB(User newUser)
         {
-            /*_context.UserTable.Add(newUser);
+            _context.UserTable.Add(newUser);
 
-            _context.SaveChanges();*/
+            _context.SaveChanges();
+        }
+
+        public bool IsEmailExistInDB(string email)
+        {
+            return _context.UserTable.Any(x => x.Email.Equals(email));
+        }
+
+        public User GetUserByID(string id)
+        {
+            Guid guid = GetGUIDFromString(id);
+
+            return _context.UserTable.Where(x => x.ID.Equals(guid)).FirstOrDefault();
+        }
+
+        public User GetUserByUsername(string username)
+        {
+            return _context.UserTable.Where(x => x.Username.Equals(username)).FirstOrDefault();
         }
 
         public User GetUserByEmail(string email)
@@ -32,6 +50,11 @@ namespace E_Wallet_Alpha.DataAccessLayer
                 .Transictions.Add(payment);
 
             _context.SaveChanges();
+        }
+
+        private Guid GetGUIDFromString(string id)
+        {
+            return Guid.Parse(id);
         }
     }
 }

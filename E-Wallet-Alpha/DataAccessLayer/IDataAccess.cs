@@ -12,5 +12,9 @@ namespace E_Wallet_Alpha.DataAccessLayer
 
         void AddUserToDB(User user);
 
+        User GetUserByID(string email);
+
+        bool IsEmailExistInDB(string email);
+
     }
 }
