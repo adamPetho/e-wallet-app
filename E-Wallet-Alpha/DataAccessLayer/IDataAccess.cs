@@ -16,5 +16,7 @@ namespace E_Wallet_Alpha.DataAccessLayer
 
         bool IsEmailExistInDB(string email);
 
+        void AddToHistory(Transiction trans, string id);
+
     }
 }

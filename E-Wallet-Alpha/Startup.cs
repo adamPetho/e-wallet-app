@@ -37,6 +37,7 @@ namespace E_Wallet_Alpha
             services.AddScoped<LoginService>();
             services.AddScoped<IDataAccess, DataAccessClass>();
             services.AddScoped<PasswordHasher>();
+            services.AddScoped<TransictionHandler>();
 
             services.AddSession();
 

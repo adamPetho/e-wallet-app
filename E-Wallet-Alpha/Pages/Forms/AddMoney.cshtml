@@ -1,0 +1,12 @@
+﻿@page
+@model E_Wallet_Alpha.Pages.Forms.AddMoneyModel
+@{
+}
+
+<h1>Please Log in</h1>
+<form method="post">
+    <input type="text" placeholder="To or From who" asp-for="@Model.ToWho" value="@Model.ToWho" />
+    <input type="text" placeholder="How much money?" asp-for="@Model.Money" value="@Model.Money" />
+    <input type="checkbox" asp-for="@Model.IsChecked" />
+    <button type="submit">Log in </button>
+</form>

@@ -29,6 +29,6 @@ namespace E_Wallet_Alpha.Models
 
         [Required]
         public int Balance { get; set; }
-        public List<Transiction> Transictions { get; set; }
+        public List<Transiction> Transictions { get; set; } = new List<Transiction>();
     }
 }

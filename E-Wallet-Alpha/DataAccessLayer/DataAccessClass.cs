@@ -43,9 +43,11 @@ namespace E_Wallet_Alpha.DataAccessLayer
             return _context.UserTable.Where(x => x.Email.Equals(email)).FirstOrDefault();
         }
 
-        public void AddToHistore(Transiction payment, string email)
+        public void AddToHistory(Transiction payment, string id)
         {
-            _context.UserTable.Where(x => x.Email.Equals(email))
+            Guid guid = GetGUIDFromString(id);
+
+            _context.UserTable.Where(x => x.ID.Equals(guid))
                 .FirstOrDefault()
                 .Transictions.Add(payment);
 

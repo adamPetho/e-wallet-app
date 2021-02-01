@@ -16,14 +16,17 @@ namespace E_Wallet_Alpha.Models
 
         [Required]
         [MaxLength(200)]
-        public string ToWhom { get; set; }
+        public string ToOrFromSomeOne { get; set; }
 
         [Required]
         public int AmountOfMoney { get; set; }
 
+        [Required]
+        public bool DidIGetMoney { get; set; }
+
         public override string ToString()
         {
-            return $"Paid {AmountOfMoney} HUF to {ToWhom}.";
+            return DidIGetMoney ? $"{ToOrFromSomeOne} paid me" : $"I paid to {ToOrFromSomeOne}.";
         }
     }   
 }

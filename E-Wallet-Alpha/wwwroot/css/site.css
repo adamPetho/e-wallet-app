@@ -45,7 +45,7 @@ body {
 }
 
 .wallet-container {
-    background: linear-gradient(rgba(0,0,2,0.6),rgba(244,5,55,0.6)),url(../wallett-app-background.jpg);
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,12,150,0.6)),url(../wallett-app-background.jpg);
     width: 320px;
     color: #fff;
     font-size: 15px;
@@ -56,7 +56,66 @@ body {
     position: absolute;
 }
 
+.page-title {
+    text-align:left;
+}
 
+.fa-user {
+    float: right;
+}
+.fa-align-left {
+    margin-right: 15px;
+}
+
+.amount-box img {
+    width:50px;
+}
+
+.amount {
+    font-size: 35px;
+}
+
+.btn-group {
+    margin: 20px 0;
+}
+.btn-group .btn {
+    margin: 8px ;
+    border-radius: 20px !important;
+    font-size: 15px;
+}
+
+.txn-history {
+    text-align:left;
+}
+
+.txn-list {
+    background-color: #fff;
+    color: #777;
+    padding: 12px 10px;
+    font-size: 14px;
+    margin: 7px 0;
+}
+
+.debit-amount {
+    color: red;
+    float: right;
+}
+
+.credit-amount {
+    color: green;
+    float: right;
+}
+
+.footer-menu {
+    margin: 20px -20px 0;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+    padding: 10px 10px 0;
+}
+
+.footer-menu p {
+    font-size: 12px;
+}
 /*
 .border-top {
   border-top: 1px solid #e5e5e5;
