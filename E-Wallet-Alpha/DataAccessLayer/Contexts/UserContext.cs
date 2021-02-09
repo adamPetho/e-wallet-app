@@ -13,6 +13,6 @@ namespace E_Wallet_Alpha.DataAccessLayer.Contexts
         public UserContext(DbContextOptions options) : base(options) { }
 
         public DbSet<User> UserTable { get; set; } 
-        public DbSet<Transiction> TransictionTable { get; set; }
+        public DbSet<Transaction> TransictionTable { get; set; }
     }
 }

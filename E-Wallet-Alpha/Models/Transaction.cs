@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace E_Wallet_Alpha.Models
 {
-    public class Transiction
+    public class Transaction
     {
 
-        public Transiction()
+        public Transaction()
         {
             ID = new Guid();
         }
@@ -23,10 +24,12 @@ namespace E_Wallet_Alpha.Models
 
         [Required]
         public bool DidIGetMoney { get; set; }
+        [Required]
+        public Guid UserID { get; set; }
 
         public override string ToString()
         {
-            return DidIGetMoney ? $"{ToOrFromSomeOne} paid me" : $"I paid to {ToOrFromSomeOne}.";
+            return DidIGetMoney ? $"{ToOrFromSomeOne} uploaded money" : $"I paid to {ToOrFromSomeOne}.";
         }
     }   
 }

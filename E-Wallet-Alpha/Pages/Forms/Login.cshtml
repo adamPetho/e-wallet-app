@@ -2,9 +2,11 @@
 @model E_Wallet_Alpha.Pages.Forms.LoginModel
 @{
 }
-<h1>Please Log in</h1>
-<form method="post">
-    <input type="text" placeholder="Email" asp-for="@Model.Email" value="@Model.Email"/>
-    <input type="password" placeholder="Password" asp-for="@Model.Password" value="@Model.Password"/>
-    <button type="submit">Log in </button>
-</form>
+<div class="form-wrapper">
+    <form method="post" class="form-signin">
+        <h2 class="form-signin-heading">Please login</h2>
+        <input type="text" class="form-control" placeholder="Email" asp-for="@Model.Email" value="@Model.Email" />
+        <input type="password" class="form-control" placeholder="Password" asp-for="@Model.Password" value="@Model.Password" />
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Log in </button>
+    </form>
+</div>

@@ -9,12 +9,10 @@ namespace E_Wallet_Alpha.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
         private readonly LoginService _lgService;
 
-        public IndexModel(ILogger<IndexModel> logger, LoginService lg)
+        public IndexModel(LoginService lg, TransactionHandler tsHandler)
         {
-            _logger = logger;
             _lgService = lg;
         }
 

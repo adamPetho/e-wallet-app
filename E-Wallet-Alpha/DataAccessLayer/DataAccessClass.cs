@@ -1,6 +1,7 @@
 ﻿using E_Wallet_Alpha.DataAccessLayer.Contexts;
 using E_Wallet_Alpha.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace E_Wallet_Alpha.DataAccessLayer
@@ -30,7 +31,11 @@ namespace E_Wallet_Alpha.DataAccessLayer
         {
             Guid guid = GetGUIDFromString(id);
 
-            return _context.UserTable.Where(x => x.ID.Equals(guid)).FirstOrDefault();
+            User user = _context.UserTable.Where(x => x.ID.Equals(guid)).FirstOrDefault();
+
+            user.Transictions = GetHistoryOfUser(guid);
+
+            return user;
         }
 
         public User GetUserByUsername(string username)
@@ -43,16 +48,55 @@ namespace E_Wallet_Alpha.DataAccessLayer
             return _context.UserTable.Where(x => x.Email.Equals(email)).FirstOrDefault();
         }
 
-        public void AddToHistory(Transiction payment, string id)
+        public void UploadMoneyToUsersBalance(string id, Transaction payment)
         {
             Guid guid = GetGUIDFromString(id);
 
-            _context.UserTable.Where(x => x.ID.Equals(guid))
-                .FirstOrDefault()
-                .Transictions.Add(payment);
+            User user = _context.UserTable.Where(x => x.ID.Equals(guid))
+                .FirstOrDefault();
+
+            payment.UserID = guid;
+
+            user.Transictions.Add(payment);
+
+            user.Balance += payment.AmountOfMoney;
 
             _context.SaveChanges();
         }
+
+        public void PayoutFromUsersBalance(string id, Transaction payment)
+        {
+            Guid guid = GetGUIDFromString(id);
+
+            User user = _context.UserTable.Where(x => x.ID.Equals(guid))
+                .FirstOrDefault();
+
+            payment.UserID = guid;
+
+            user.Transictions.Add(payment);
+
+            user.Balance -= payment.AmountOfMoney;
+
+            _context.SaveChanges();
+        }
+
+        public void DeleteHistory(string id)
+        {
+            Guid guid = GetGUIDFromString(id);
+
+            foreach(var transactionToDelete in _context.TransictionTable.Where(x=> x.UserID == guid))
+            {
+                _context.TransictionTable.Remove(transactionToDelete);
+            }
+
+            _context.SaveChanges();
+        }
+
+        public List<Transaction> GetHistoryOfUser(Guid id)
+        {
+            return _context.TransictionTable.Where(x => x.UserID == id).ToList();
+        }
+
 
         private Guid GetGUIDFromString(string id)
         {

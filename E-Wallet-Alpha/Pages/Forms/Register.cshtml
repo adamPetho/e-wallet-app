@@ -2,12 +2,14 @@
 @model E_Wallet_Alpha.Pages.Forms.RegisterModel
 @{
 }
-<h1>Please Fill out the Form</h1>
-<form method="post">
-    <label>Username must be between 3 and 20 character!</label>
-    <input type="text" placeholder="Username" asp-for="@Model.Username" value="@Model.Username" />
-    <input type="text" placeholder="Email" asp-for="@Model.Email" value="@Model.Email" />
-    <input type="password" placeholder="Password" asp-for="@Model.Password" value="@Model.Password" />
-    <input type="password" placeholder="Confirm Password" asp-for="@Model.ConfirmPassword" value="@Model.ConfirmPassword" />
-    <button type="submit">Register</button>
-</form>
+<div class="form-wrapper">
+    <form method="post" class="form-signin">
+        <h2 class="form-signin-heading">Register Page</h2>
+        <label>Username must be between 3 and 20 character!</label>
+        <input type="text" class="form-control" placeholder="Username" asp-for="@Model.Username" value="@Model.Username" />
+        <input type="text" class="form-control" placeholder="Email" asp-for="@Model.Email" value="@Model.Email" />
+        <input type="password" class="form-control" placeholder="Password" asp-for="@Model.Password" value="@Model.Password" />
+        <input type="password" class="form-control" placeholder="Confirm Password" asp-for="@Model.ConfirmPassword" value="@Model.ConfirmPassword" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+</div>

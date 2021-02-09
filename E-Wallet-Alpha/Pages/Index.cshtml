@@ -13,12 +13,13 @@
         <div class="amount-box text-center">
             <img src="~/digital-wallet.png" />
             <p>Total Balance:</p>
-            <p class="amount">@Model.LoggedInUser.Balance Ft</p>
+            <p class="amount">@Model.LoggedInUser.Balance Huf</p>
         </div>
 
         <div class="btn-group text-center">
             <button type="button" id="add_money_btn" class="btn btn-outline-light">Add Money</button>
-            <button type="button" id="withdraw_btn" class="btn btn-outline-light">Withdraw</button>
+            <button type="button" id="payout_btn" class="btn btn-outline-light">Pay out</button>
+            <button type="button" id="clear_history_btn" class="btn btn-outline-light">Clear History</button>
         </div>
 
         <div class="txn-history">
@@ -27,11 +28,11 @@
             {
                 if (transiction.DidIGetMoney)
                 {
-                    <p class="txn-list">@transiction.ToOrFromSomeOne paid me! Yay!<span class="credit-amount">+ @transiction.AmountOfMoney HUF</span></p>
+                    <p class="txn-list">I uploaded some money.<span class="credit-amount">+@transiction.AmountOfMoney HUF</span></p>
                 }
                 else
                 {
-                    <p class="txn-list">I paid to @transiction.ToOrFromSomeOne .Yikes! <span class="debit-amount">- @transiction.AmountOfMoney HUF</span></p>
+                    <p class="txn-list">I paid to @transiction.ToOrFromSomeOne<span class="debit-amount">- @transiction.AmountOfMoney HUF</span></p>
                 }
             }
         </div>

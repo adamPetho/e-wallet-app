@@ -1,52 +1,10 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-/*
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}*/
-
-/* Provide sufficient contrast against white background */
-/*
-a {
-  color: #0366d6;
-}
-*/
-
-/*
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-*/
-
-/*
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-    */
-/* Sticky footer styles
--------------------------------------------------- */
-/*html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}*/
-
+﻿
 body {
     background-color: #3fb0ef !important;
 }
 
 .wallet-container {
     background: linear-gradient(rgba(0,0,0,0.9),rgba(0,12,150,0.6)),url(../wallett-app-background.jpg);
-    width: 320px;
     color: #fff;
     font-size: 15px;
     padding: 20px 20px 0;
@@ -54,6 +12,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
+    width: 320px;
 }
 
 .page-title {
@@ -116,36 +75,50 @@ body {
 .footer-menu p {
     font-size: 12px;
 }
-/*
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+
+.input_field {
+    margin-bottom: 60px;
+    margin-top: 25px;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+
+
+.form-wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.form-signin {
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
 }
-    */
-/* Sticky footer styles
--------------------------------------------------- */
-/*
-html {
-  position: relative;
-  min-height: 100%;
+.form-signin-heading {
+        margin-bottom: 30px;
 }
-    */
-/*
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-*/
+
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    @include box-sizing(border-box);
+    &:focus {
+    z-index: 2;
+    }
+
+}
+
+input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}

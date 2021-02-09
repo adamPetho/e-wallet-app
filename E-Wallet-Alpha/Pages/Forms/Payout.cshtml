@@ -1,15 +1,21 @@
 ﻿@page
-@model E_Wallet_Alpha.Pages.Forms.AddMoneyModel
+@model E_Wallet_Alpha.Pages.Forms.PayoutModel
 @{
 }
 
 <div class="wallet-container text-center">
-    <p class="page-title"><i class="fa fa-align-left"></i>I like money :)<i class="fa fa-user" aria-hidden="true"></i></p>
+    <p class="page-title"><i class="fa fa-align-left"></i>It's OK to spend it<i class="fa fa-user" aria-hidden="true"></i></p>
 
     <form method="post">
-        <label> How much money did you earn?</label>
-        <input class="input_field" type="text" placeholder="How much money?" asp-for="@Model.Money" value="@Model.Money" />
-        <button class="btn btn-outline-light" type="submit">Add Money</button>
+
+        <p> Who got paid?</p>
+        <input class="input_field" type="text" placeholder="Who or what shop?" asp-for="@Model.Target" value="@Model.Target" />
+
+        <p> How much money did you spend?</p>
+        <input class="input_field" type="text" placeholder="How much money?" asp-for="@Model.Money" value="@Model.Money"/>
+
+        <button class="btn btn-outline-light" type="submit">Add Transaction</button>
+
     </form>
 
     <div class="footer-menu">

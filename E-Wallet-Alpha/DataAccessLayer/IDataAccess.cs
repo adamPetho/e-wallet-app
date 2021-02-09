@@ -1,8 +1,4 @@
 ﻿using E_Wallet_Alpha.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace E_Wallet_Alpha.DataAccessLayer
 {
@@ -16,7 +12,8 @@ namespace E_Wallet_Alpha.DataAccessLayer
 
         bool IsEmailExistInDB(string email);
 
-        void AddToHistory(Transiction trans, string id);
-
+        void UploadMoneyToUsersBalance(string id, Transaction trans);
+        void PayoutFromUsersBalance(string id, Transaction newTransaction);
+        void DeleteHistory(string id);
     }
 }

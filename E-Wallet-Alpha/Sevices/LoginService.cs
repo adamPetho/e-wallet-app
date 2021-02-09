@@ -56,7 +56,10 @@ namespace E_Wallet_Alpha.Sevices
 
         public User GetUserByID(string id)
         {
-            return _dao.GetUserByID(id);
+
+            User user = _dao.GetUserByID(id);
+
+            return user;
         }
     }
 }
