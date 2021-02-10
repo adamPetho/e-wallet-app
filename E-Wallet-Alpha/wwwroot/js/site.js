@@ -1,5 +1,4 @@
-﻿
-var logout = document.getElementById("logout_div");
+﻿var logout = document.getElementById("logout_div");
 if (logout !== null) {
     logout.addEventListener('click', (ev) => {
         window.location.href = '/Forms/Logout';
