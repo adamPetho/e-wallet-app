@@ -12,8 +12,8 @@
 
         <div class="amount-box text-center">
             <img src="~/digital-wallet.png" />
-            <p>Total Balance:</p>
-            <p class="amount">@Model.LoggedInUser.Balance Huf</p>
+            <p class="balance-text">Total Balance:</p>
+            <p class="amount">@Model.LoggedInUser.Balance HUF</p>
         </div>
 
         <div class="btn-group text-center">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="txn-history">
-            <p><b>History</b></p>
+            <p class="history-label">History</p>
             @foreach (var transiction in Model.LoggedInUser.Transictions)
             {
                 if (transiction.DidIGetMoney)
@@ -70,9 +70,17 @@ else
 {
     <div class="welcome_page_container">
         <img id="welcome_img" src="~/welcome-img.png" />
-        <p class="display-4">Welcome To the Wallet App!</p>
-        <button type="button" id="sign_up_btn" class="btn btn-outline-light">Sign-up</button>
-        <button type="button" id="sign_in_btn" class="btn btn-outline-light">Login</button>
+        <div class="welcome_page_textholder">
+        <p>Welcome To the Wallet App!</p>
+        <p>Pet project from one person</p>
+        <p>Feel free to use it if you like</p>
+
+        <div class="welcome_page_buttonholder">
+            <button type="button" id="sign_up_btn" class="btn btn-outline-light">Sign-up</button>
+            <button type="button" id="sign_in_btn" class="btn btn-outline-light">Login</button>
+        </div>
+
+        </div>
 
     </div>
 }

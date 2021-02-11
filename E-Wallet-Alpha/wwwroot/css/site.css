@@ -5,7 +5,7 @@ body {
 }
 
 .wallet-container {
-    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,12,150,0.6)),url(../wallett-app-background.jpg);
+    background: linear-gradient(rgba(0,0,0,0.9),rgb(10 13 101 / 69%)),url(../wallett-app-background.jpg);
     color: #fff;
     font-size: 15px;
     padding: 20px 20px 0;
@@ -16,8 +16,27 @@ body {
     width: 320px;
 }
 
+#welcome_img {
+    top: -107px;
+    display: inline-block;
+    position:relative;
+}
+
+.welcome_page_textholder {
+    display:inline-block;
+    position: relative;
+    font-size: 35px;
+    margin-top: 20%;
+}
+
+.welcome_page_buttonholder {
+    margin-left: 25%;
+    max-width: 220px;
+}
+
 .page-title {
     text-align:left;
+    font-size:17px;
 }
 
 .fa-user {
@@ -82,7 +101,15 @@ body {
     margin-top: 25px;
 }
 
+.balance-text {
+    font-size: 16px;
+    margin-top: 5px;
+}
 
+.history-label {
+    font-size: 16px;
+    font-weight: 600;
+}
 
 .form-wrapper {
     margin-top: 80px;
@@ -97,7 +124,11 @@ body {
     border: 1px solid rgba(0,0,0,0.1);
 }
 .form-signin-heading {
-        margin-bottom: 30px;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
 }
 
 .form-control {
@@ -113,13 +144,13 @@ body {
 }
 
 input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-color: black;
 }
 
 input[type="password"] {
     margin-bottom: 20px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-radius: 12px;
+    border-color: black;
 }
