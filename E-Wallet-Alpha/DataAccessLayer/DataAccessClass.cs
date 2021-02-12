@@ -33,7 +33,7 @@ namespace E_Wallet_Alpha.DataAccessLayer
 
             User user = _context.UserTable.Where(x => x.ID.Equals(guid)).FirstOrDefault();
 
-            user.Transictions = GetHistoryOfUser(guid);
+            user.Transictions = GetHistoryOfUserOnlyFive(guid);
 
             return user;
         }
@@ -92,9 +92,14 @@ namespace E_Wallet_Alpha.DataAccessLayer
             _context.SaveChanges();
         }
 
-        public List<Transaction> GetHistoryOfUser(Guid id)
+        private List<Transaction> GetHistoryOfUser(Guid id)
         {
             return _context.TransictionTable.Where(x => x.UserID == id).ToList();
+        }
+
+        private List<Transaction> GetHistoryOfUserOnlyFive(Guid id)
+        {
+            return _context.TransictionTable.Where(x => x.UserID == id).Take(5).ToList();
         }
 
 
