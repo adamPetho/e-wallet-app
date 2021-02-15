@@ -36,9 +36,10 @@ namespace E_Wallet_Alpha.Pages.Forms
             {
                 Transaction newTransaction = new Transaction
                 {
-                    ToOrFromSomeOne = "I",
+                    Receiver = "I",
                     AmountOfMoney = Money,
-                    DidIGetMoney = true
+                    DidIGetMoney = true,
+                    Date = DateTime.Now
                 };
 
                 string id = HttpContext.Session.GetString("user_id");
