@@ -39,3 +39,10 @@ if (clear_history_btn !== null) {
         window.location.href = '/ClearHistory';
     });
 }
+
+var history_div = document.getElementById("history_div");
+if (history_div !== null) {
+    history_div.addEventListener('click', (ev) => {
+        window.location.href = '/History';
+    });
+}

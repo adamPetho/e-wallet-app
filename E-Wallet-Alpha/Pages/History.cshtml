@@ -1,18 +1,24 @@
 ﻿@page
-@model E_Wallet_Alpha.Pages.Forms.PayoutModel
+@model E_Wallet_Alpha.Pages.HistoryModel
 @{
 }
-
 <div class="wallet-container text-center">
-    <p class="page-title"><i class="fa fa-align-left"></i>It's OK to spend it<i class="fa fa-user" aria-hidden="true"></i></p>
+    <p class="page-title"><i class="fa fa-align-left"></i>Welcome @Model.LoggedInUser.Username<i class="fa fa-user" aria-hidden="true"></i></p>
 
-    <form method="post">
-        <p> Who got paid?</p>
-        <input class="input_field" type="text" placeholder="Who or what shop?" asp-for="@Model.Target" value="@Model.Target" />
-        <p> How much money did you spend?</p>
-        <input class="input_field" type="text" placeholder="How much money?" asp-for="@Model.Money" value="@Model.Money"/>
-        <button class="btn btn-outline-light" type="submit">Add Transaction</button>
-    </form>
+    <div class="txn-history">
+        <p class="history-label">History</p>
+        @foreach (var transiction in Model.LoggedInUser.Transictions)
+        {
+            if (transiction.DidIGetMoney)
+            {
+                <p class="txn-list">I uploaded some money.<span class="credit-amount">+@transiction.AmountOfMoney HUF</span></p>
+            }
+            else
+            {
+                <p class="txn-list">I paid to @transiction.Receiver<span class="debit-amount">- @transiction.AmountOfMoney HUF</span></p>
+            }
+        }
+    </div>
 
     <div class="footer-menu">
         <div class="row text-center" id="home_div">
@@ -37,4 +43,5 @@
             </div>
         </div>
     </div>
+
 </div>

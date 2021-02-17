@@ -11,7 +11,7 @@ namespace E_Wallet_Alpha.Pages
     {
         private readonly LoginService _lgService;
 
-        public IndexModel(LoginService lg, TransactionHandler tsHandler)
+        public IndexModel(LoginService lg)
         {
             _lgService = lg;
         }
