@@ -40,9 +40,17 @@ if (clear_history_btn !== null) {
     });
 }
 
+var home_div = document.getElementById("home_div");
+if (home_div !== null) {
+    home_div.addEventListener('click', (ev) => {
+        window.location.href = '/';
+    });
+}
+
 var history_div = document.getElementById("history_div");
 if (history_div !== null) {
     history_div.addEventListener('click', (ev) => {
         window.location.href = '/History';
     });
 }
+

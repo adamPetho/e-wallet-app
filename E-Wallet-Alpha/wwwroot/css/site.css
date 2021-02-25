@@ -5,6 +5,7 @@ body {
     overflow: hidden;
 }
 
+
 .wallet-container {
     background: linear-gradient(rgba(0,0,0,0.9),rgb(10 13 101 / 69%)),url(../wallett-app-background.jpg);
     color: #fff;
@@ -38,9 +39,14 @@ body {
 
 .page-title {
     text-align:left;
-    font-size:17px;
+    font-size:20px;
 }
 
+@media only screen and (max-width:500px) {
+    .page-title {
+        font-size: 15px;
+    }
+}
 .fa-user {
     float: right;
 }
@@ -80,6 +86,12 @@ body {
     width: 100%;
 }
 
+@media (max-width:570px) {
+    .txn-list {
+        min-width: 265px;
+    }
+}
+
 .debit-amount {
     color: red;
     float: right;
@@ -109,8 +121,8 @@ body {
 }
 
 .balance-text {
-    font-size: 16px;
-    margin-top: 5px;
+    font-size: 20px;
+    margin-top: 7px;
 }
 
 .history-label {
