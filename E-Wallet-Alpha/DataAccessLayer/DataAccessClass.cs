@@ -107,5 +107,16 @@ namespace E_Wallet_Alpha.DataAccessLayer
         {
             return Guid.Parse(id);
         }
+
+        public User GetUserByIDWithFullHistory(string id)
+        {
+            Guid guid = GetGUIDFromString(id);
+
+            User user = _context.UserTable.Where(x => x.ID.Equals(guid)).FirstOrDefault();
+
+            user.Transictions = GetHistoryOfUserOrderDESC(guid);
+
+            return user;
+        }
     }
 }

@@ -8,7 +8,9 @@ namespace E_Wallet_Alpha.DataAccessLayer
 
         void AddUserToDB(User user);
 
-        User GetUserByID(string email);
+        User GetUserByID(string id);
+
+        User GetUserByIDWithFullHistory(string id);
 
         bool IsEmailExistInDB(string email);
 

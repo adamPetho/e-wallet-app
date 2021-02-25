@@ -30,11 +30,10 @@ namespace E_Wallet_Alpha.Pages
             {
                 throw new Exception("You should be logged in");
             }
-            else
-            {
-                //data holder
-                LoggedInUser = _lgService.GetUserByID(guidInString);
-            }
+            
+            //data holder
+            LoggedInUser = _lgService.GetUserByIDWithFullHistory(guidInString);
+       
         }
     }
 }

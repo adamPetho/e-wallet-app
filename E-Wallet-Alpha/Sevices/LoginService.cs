@@ -61,5 +61,12 @@ namespace E_Wallet_Alpha.Sevices
 
             return user;
         }
+
+        public User GetUserByIDWithFullHistory(string id)
+        {
+            User user = _dao.GetUserByIDWithFullHistory(id);
+
+            return user;
+        }
     }
 }
