@@ -1,0 +1,175 @@
+﻿
+body {
+    background-color: #120909 !important;
+    color: white;
+    overflow: hidden;
+}
+
+
+.wallet-container {
+    background: linear-gradient(rgba(0,0,0,0.9),rgb(10 13 101 / 69%)),url(../wallett-app-background.jpg);
+    color: #fff;
+    font-size: 15px;
+    padding: 20px 20px 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#welcome_img {
+    top: -107px;
+    display: inline-block;
+    position:relative;
+}
+
+.welcome_page_textholder {
+    display:inline-block;
+    position: relative;
+    font-size: 35px;
+    margin-top: 20%;
+}
+
+.welcome_page_buttonholder {
+    margin-left: 25%;
+    max-width: 220px;
+}
+
+.page-title {
+    text-align:left;
+    font-size:20px;
+}
+
+@media only screen and (max-width:500px) {
+    .page-title {
+        font-size: 15px;
+    }
+}
+.fa-user {
+    float: right;
+}
+.fa-align-left {
+    margin-right: 15px;
+}
+
+.amount-box img {
+    width:50px;
+}
+
+.amount {
+    font-size: 35px;
+}
+
+.btn-group {
+    margin: 20px 0;
+}
+.btn-group .btn {
+    margin: 8px ;
+    border-radius: 20px !important;
+    font-size: 15px;
+}
+
+.txn-history {
+    text-align: left;
+    width: 50%;
+    margin-left: 26%;
+}
+
+.txn-list {
+    background-color: #fff;
+    color: #777;
+    padding: 12px 10px;
+    font-size: 14px;
+    margin: 7px 0;
+    width: 100%;
+}
+
+@media (max-width:570px) {
+    .txn-list {
+        min-width: 265px;
+    }
+}
+
+.debit-amount {
+    color: red;
+    float: right;
+}
+
+.credit-amount {
+    color: green;
+    float: right;
+}
+
+.footer-menu {
+    margin: 20px -20px 0;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+    padding: 10px 0 0;
+    position: absolute;
+    width: 100%;
+}
+
+.footer-menu p {
+    font-size: 12px;
+}
+
+.input_field {
+    margin-bottom: 60px;
+    margin-top: 25px;
+}
+
+.balance-text {
+    font-size: 20px;
+    margin-top: 7px;
+}
+
+.history-label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.form-wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.form-signin {
+    max-width: 380px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.form-signin-heading {
+    margin-bottom: 10%;
+    margin-top: 5%;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    @include box-sizing(border-box);
+    &:focus {
+    z-index: 2;
+    }
+
+}
+
+input[type="text"] {
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-color: black;
+}
+
+input[type="password"] {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border-color: black;
+}

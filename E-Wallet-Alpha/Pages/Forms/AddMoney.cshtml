@@ -1,0 +1,39 @@
+﻿@page
+@model E_Wallet_Alpha.Pages.Forms.AddMoneyModel
+@{
+}
+
+<div class="wallet-container text-center">
+    <p class="page-title"><i class="fa fa-align-left"></i>I like money :)<i class="fa fa-user" aria-hidden="true"></i></p>
+
+    <form method="post">
+        <label> How much money did you earn?</label>
+        <input class="input_field" type="text" placeholder="How much money?" asp-for="@Model.Money" value="@Model.Money" />
+        <button class="btn btn-outline-light" type="submit">Add Money</button>
+    </form>
+
+    <div class="footer-menu">
+        <div class="row text-center">
+            <div class="col-md-3" id="home_div">
+                <i class="fa fa-home" aria-hidden="false"></i>
+                <p>Home</p>
+            </div>
+
+            <div class="col-md-3" id="history_div">
+                <i class="fa fa-inbox"></i>
+                <p>Inbox</p>
+            </div>
+
+            <div class="col-md-3">
+                <i class="fa fa-university"></i>
+                <p>Bank</p>
+            </div>
+
+            <div class="col-md-3" id="logout_div">
+                <i class="fa fa-sign-out"></i>
+                <p>Sign Out</p>
+            </div>
+        </div>
+    </div>
+
+</div>

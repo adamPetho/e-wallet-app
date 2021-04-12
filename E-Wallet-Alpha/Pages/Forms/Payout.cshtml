@@ -1,0 +1,41 @@
+﻿@page
+@model E_Wallet_Alpha.Pages.Forms.PayoutModel
+@{
+}
+
+<div class="wallet-container text-center">
+    <p class="page-title"><i class="fa fa-align-left"></i>It's OK to spend it<i class="fa fa-user" aria-hidden="true"></i></p>
+
+    <form method="post">
+        <p> Who got paid?</p>
+        <input class="input_field" type="text" placeholder="Who or what shop?" asp-for="@Model.Target" value="@Model.Target" />
+        <p> How much money did you spend?</p>
+        <input class="input_field" type="text" placeholder="How much money?" asp-for="@Model.Money" value="@Model.Money"/>
+        <button class="btn btn-outline-light" type="submit">Add Transaction</button>
+    </form>
+
+    <div class="footer-menu">
+        <div class="row text-center">
+            <div class="col-md-3" id="home_div">
+                <i class="fa fa-home" aria-hidden="false"></i>
+                <p>Home</p>
+            </div>
+
+            <div class="col-md-3" id="history_div">
+                <i class="fa fa-inbox"></i>
+                <p>Inbox</p>
+            </div>
+
+            <div class="col-md-3">
+                <i class="fa fa-university"></i>
+                <p>Bank</p>
+            </div>
+
+            <div class="col-md-3" id="logout_div">
+                <i class="fa fa-sign-out"></i>
+                <p>Sign Out</p>
+            </div>
+        </div>
+    </div>
+
+</div>

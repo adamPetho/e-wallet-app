@@ -1,0 +1,14 @@
+﻿@page
+@model E_Wallet_Alpha.Pages.Forms.RegisterModel
+@{
+}
+<div class="form-wrapper">
+    <form method="post" class="form-signin">
+        <h2 class="form-signin-heading">Fill out the form</h2>
+        <input type="text" class="form-control" placeholder="Username" asp-for="@Model.Username" value="@Model.Username" />
+        <input type="text" class="form-control" placeholder="Email" asp-for="@Model.Email" value="@Model.Email" />
+        <input type="password" class="form-control" placeholder="Password" asp-for="@Model.Password" value="@Model.Password" />
+        <input type="password" class="form-control" placeholder="Confirm Password" asp-for="@Model.ConfirmPassword" value="@Model.ConfirmPassword" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+</div>

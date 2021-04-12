@@ -1,0 +1,86 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (Model.isLoggedIn)
+{
+    <div class="wallet-container text-center">
+        <p class="page-title"><i class="fa fa-align-left"></i>Welcome @Model.LoggedInUser.Username<i class="fa fa-user" aria-hidden="true"></i></p>
+
+
+        <div class="amount-box text-center">
+            <img src="~/digital-wallet.png" />
+            <p class="balance-text">Total Balance:</p>
+            <p class="amount">@Model.LoggedInUser.Balance HUF</p>
+        </div>
+
+        <div class="btn-group text-center">
+            <button type="button" id="add_money_btn" class="btn btn-outline-light">Add Money</button>
+            <button type="button" id="payout_btn" class="btn btn-outline-light">Pay out</button>
+            <button type="button" id="clear_history_btn" class="btn btn-outline-light">Clear History</button>
+        </div>
+
+        <div class="txn-history">
+            <p class="history-label">History</p>
+            @foreach (var transiction in Model.LoggedInUser.Transictions)
+            {
+                if (transiction.DidIGetMoney)
+                {
+                    <p class="txn-list">I uploaded some money.<span class="credit-amount">+@transiction.AmountOfMoney HUF</span></p>
+                }
+                else
+                {
+                    <p class="txn-list">I paid to @transiction.Receiver<span class="debit-amount">- @transiction.AmountOfMoney HUF</span></p>
+                }
+            }
+        </div>
+
+        <div class="footer-menu">
+            <div class="row text-center">
+                <div class="col-md-3" id="home_div">
+                    <i class="fa fa-home" aria-hidden="false"></i>
+                    <p>Home</p>
+                </div>
+
+                <div class="col-md-3" id="history_div">
+                    <i class="fa fa-inbox"></i>
+                    <p>Inbox</p>
+                </div>
+
+                <div class="col-md-3">
+                    <i class="fa fa-university"></i>
+                    <p>Bank</p>
+                </div>
+
+                <div class="col-md-3" id="logout_div">
+                    <i class="fa fa-sign-out"></i>
+                    <p>Sign Out</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+}
+else
+{
+    <div class="welcome_page_container">
+        <img id="welcome_img" src="~/welcome-img.png" />
+        <div class="welcome_page_textholder">
+        <p>Welcome To the Wallet App!</p>
+        <p>Pet project from one person</p>
+        <p>Feel free to use it if you like</p>
+
+        <div class="welcome_page_buttonholder">
+            <button type="button" id="sign_up_btn" class="btn btn-outline-light">Sign-up</button>
+            <button type="button" id="sign_in_btn" class="btn btn-outline-light">Login</button>
+        </div>
+
+        </div>
+
+    </div>
+}
